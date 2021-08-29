@@ -1,9 +1,10 @@
 # 프로그래머스 level 1문제 부족한 금액 계산하기.
 
 def solution(price, money, count):
-    total = 0
-    for i in range(1,count+1):
-        total += price*i
+    # total = 0
+    # for i in range(1,count+1):
+    #     total += price*i
+    total = sum([ price * i for i in range(1,count+1)])
     if total > money:
         return total-money
     else :
