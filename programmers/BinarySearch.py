@@ -1,5 +1,5 @@
 # 프로그래머스 파트3. 배열 더 알아보기: 정렬과 탐색(Sorting & Searching) (2 / 2) 강의 문제
-# 이진 탐색 (Birnary Search) 풀이
+# 이진 탐색 (Birnary Search) 풀이 - 반복문으로 풀이
 def solution(L, x):
     lower = 0
     upper = len(L) - 1
