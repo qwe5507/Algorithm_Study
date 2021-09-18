@@ -50,28 +50,37 @@ class LinkedList:
         if pos < 1 or pos > self.nodeCount:
             raise IndexError
         ## 원소가 하나일떄
-        if self.nodeCount == 1:
-            temp = self.head
-            self.head = None
-            self.tail = None
+        # if self.nodeCount == 1:
+        #     temp = self.head
+        #     self.head = None
+        #     self.tail = None
 
         ## node가 맨앞일때
-        elif pos == 1:
+        if pos == 1:
             temp = self.head
             self.head = self.head.next
+            ## 원소가 하나일떄
+            if self.nodeCount == 1:
+                self.head = None
+                self.tail = None
 
         ## node가 맨 끝일때
-        elif pos == self.nodeCount:
-            temp = self.tail
-            pre = self.getAt(pos - 1)
-            pre.next = None
-            self.tail = pre
+        # elif pos == self.nodeCount:
+        #     temp = self.tail
+        #     pre = self.getAt(pos-1)
+        #     pre.next = None
+        #     self.tail = pre
 
         ##나머지 경우
         else:
+            ## node가 맨 끝일때
             prev = self.getAt(pos - 1)
             temp = self.getAt(pos)
             prev.next = temp.next
+            if pos == self.nodeCount:
+                temp = self.tail
+                prev.next = None
+                self.tail = prev
         self.nodeCount -= 1
         return temp.data
 
