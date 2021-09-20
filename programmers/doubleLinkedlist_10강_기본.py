@@ -81,7 +81,14 @@ class DoublyLinkedList:
         next.prev = newNode
         self.nodeCount += 1
         return True
-
+    def insertBefore(self, next, newNode):
+        prev = next.prev
+        newNode.next = next
+        newNode.prev = prev
+        prev.next = newNode
+        next.prev = newNode
+        self.nodeCount += 1
+        return True
 
     def insertAt(self, pos, newNode):
         if pos < 1 or pos > self.nodeCount + 1:
