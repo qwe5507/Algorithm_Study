@@ -120,3 +120,14 @@ class DoublyLinkedList:
             raise IndexError
         prev = self.getAt(pos-1)
         return self.popAfter(prev)
+
+    def concat(self, L):
+        l1end = self.tail.prev
+        l2start = L.head.next
+        l1end.next = l2start
+        l2start.prev = l1end
+
+        self.tail = L.tail
+
+        self.nodeCount += L.nodeCount
+        return
