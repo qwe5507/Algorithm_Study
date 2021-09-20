@@ -44,6 +44,14 @@ class DoublyLinkedList:
             result.append(curr.data)
         return result
 
+    def reverse(self):
+        result = []
+        curr = self.tail
+        while curr.prev.prev:
+            curr = curr.prev
+            result.append(curr.data)
+        return result
+
 
     def getAt(self, pos):
         if pos < 0 or pos > self.nodeCount:
