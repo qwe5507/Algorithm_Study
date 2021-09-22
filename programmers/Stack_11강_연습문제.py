@@ -18,6 +18,8 @@ class ArrayStack:
     def peek(self):
         return self.data[-1]
 
+# (11) 수식의 괄호 검사 (스택)
+# 프로그래머스 11강 연습문제
 
 def solution(expr):
     match = {
