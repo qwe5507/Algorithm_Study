@@ -53,6 +53,12 @@ class Node:
             return self.left.min()
         else:
             return self
+    def max(self):
+        if self.right:
+            return self.right.max()
+        else:
+            return self
+
 
 
 class BinSearchTree:
@@ -76,6 +82,11 @@ class BinSearchTree:
     def min(self):
         if self.root:
             return self.root.min()
+        else:
+            return None
+    def max(self):
+        if self.root:
+            return self.root.max()
         else:
             return None
 
