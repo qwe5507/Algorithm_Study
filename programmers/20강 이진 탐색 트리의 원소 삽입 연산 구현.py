@@ -21,8 +21,25 @@ class Node:
             else :
                 self.right = Node(key, data)
         else:
-            raise KeyError("...")
-
+            raise KeyError("중복된 키 허용 안함")
+## 왼쪽, 오른쪽 서브트리가 존재하지 않을때 조건으로 insert 구현
+    def insert(self, key, data):
+        if key < self.key:
+            if self.left == None:
+                newnode = Node(key, data)
+                self.left = newnode
+                return
+            self = self.left
+            self.insert(key, data)
+        elif key > self.key:
+            if self.right == None:
+                newnode = Node(key, data)
+                self.right = newnode
+                return
+            self = self.right
+            self.insert(key, data)
+        else:
+            raise KeyError("중복된 키 허용 안함")
 
     def inorder(self):
         traversal = []
