@@ -23,21 +23,21 @@ class Node:
         else:
             raise KeyError("중복된 키 허용 안함")
 ## 왼쪽, 오른쪽 서브트리가 존재하지 않을때 조건으로 insert 구현
-    def insert(self, key, data):
-        if key < self.key:
-            if self.left is None:
-                self.left = Node(key, data)
-                return
-            self = self.left
-            self.insert(key, data)
-        elif key > self.key:
-            if self.right is None:
-                self.right = Node(key, data)
-                return
-            self = self.right
-            self.insert(key, data)
-        else:
-            raise KeyError("...")
+    # def insert(self, key, data):
+    #     if key < self.key:
+    #         if self.left is None:
+    #             self.left = Node(key, data)
+    #             return
+    #         self = self.left
+    #         self.insert(key, data)
+    #     elif key > self.key:
+    #         if self.right is None:
+    #             self.right = Node(key, data)
+    #             return
+    #         self = self.right
+    #         self.insert(key, data)
+    #     else:
+    #         raise KeyError("...")
 
     def inorder(self):
         traversal = []
@@ -47,6 +47,12 @@ class Node:
         if self.right:
             traversal += self.right.inorder()
         return traversal
+
+    def min(self):
+        if self.left:
+            return self.left.min()
+        else:
+            return self
 
 
 class BinSearchTree:
@@ -67,7 +73,11 @@ class BinSearchTree:
             return self.root.inorder()
         else:
             return []
-
+    def min(self):
+        if self.root:
+            return self.root.min()
+        else:
+            return None
 
 def solution(x):
     return 0
