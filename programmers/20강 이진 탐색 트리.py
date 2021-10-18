@@ -59,6 +59,20 @@ class Node:
         else:
             return self
 
+# 트리에서 key 조회, parent는 삭제 연산 시 필요해 구한다, 자세한건 다음 강의 에서
+    def lookup(self, key, parent = None):
+        if key < self.key:
+            if self.left:
+                return self.left.lookup(key, self)
+            else:
+                return None, None
+        elif key > self.key:
+            if self.right:
+                return self.right.lookup(key, self)
+            else:
+                return None, None
+        else:
+            return self, parent
 
 
 class BinSearchTree:
@@ -89,6 +103,11 @@ class BinSearchTree:
             return self.root.max()
         else:
             return None
+    def lookup(self, key):
+        if self.root:
+            return self.root.lookup(key)
+        else:
+            return None, None
 
 def solution(x):
     return 0
