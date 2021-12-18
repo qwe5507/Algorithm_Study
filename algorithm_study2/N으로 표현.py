@@ -1,4 +1,4 @@
-# 프로그래머스
+# 프로그래머스 Level 3 동적계획법
 # N으로 표현
 
 def solution(N, number):
@@ -6,7 +6,7 @@ def solution(N, number):
     for i, x in enumerate(s, start=1):
         x.add(int(str(N) * i))
 
-    for i in range(1, len(s)):
+    for i in range(len(s)):
         for j in range(i):
             for op1 in s[j]: # 앞에 놓인 수 마련 // op1은 ex) op1 * op2 이렇게 첫번쨰오는 숫자
                 for op2 in s[i - j - 1]:
